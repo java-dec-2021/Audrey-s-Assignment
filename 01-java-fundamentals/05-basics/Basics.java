@@ -37,8 +37,13 @@ public class Basic {
     }
     //6. Array with Odd Numbers
     import java.util.ArrayList;
-    ArrayList<Object> list = new ArrayList<Object>();
-    public static 
-    //list.add()
+    ArrayList<Object> myList = new ArrayList<Object>();
+    for (i= 1;i<256; i++){
+        if (i %2 != 0){
+            myList.add(i);
+        }
+    }
+    print(myList);
+    //I understand the material, not going to do the optional bonuses
 
 }

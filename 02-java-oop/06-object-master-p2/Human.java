@@ -1,9 +1,9 @@
 public class Human{
     //attributes
-    private int strength = 3;
-    private int stealth = 3;
-    private int intelligence = 3;
-    private int health = 100;
+    public static int strength = 3;
+    public static int stealth = 3;
+    public static int intelligence = 3;
+    public static int health = 100;
     //method - attack
     public void attack(Human enemy) {
         enemy.health = enemy.health - this.strength;

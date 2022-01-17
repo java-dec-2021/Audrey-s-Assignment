@@ -28,7 +28,7 @@
 		<!-- left -->
 		<div>
 			<h1>Products:</h1>
-			<c:forEach items="${products}" var="ninja">
+			<c:forEach items="${products}" var="product">
             	<p>- <c:out value="${product.name}"/></p>
         	</c:forEach>
 		</div>
@@ -40,8 +40,8 @@
 		        <form:label path="product">Add Product:</form:label>
 		        <div>
 		        	<form:select path="product">
-			        	<c:forEach items="${ nonProducts }" var="product">
-			        		<form:option value="${ product.id }">${ product.name }</form:option>
+			        	<c:forEach items="${ nonProducts }" var="nonproduct">
+			        		<form:option value="${ nonproduct.id }">${ nonproduct.name }</form:option>
 			        	</c:forEach>
 		        	</form:select>
 		        	<form:errors path="product"/>

@@ -27,9 +27,9 @@
 	<div id= "outside-cont2">
 		<!-- left -->
 		<div>
-			<h1>Products:</h1>
-			<c:forEach items="${products}" var="product">
-            	<p>- <c:out value="${product.name}"/></p>
+			<h4>Products:</h4>
+			<c:forEach items="${products}" var="p">
+            	<p>- <c:out value="${p.name}"/></p>
         	</c:forEach>
 		</div>
 		<!-- right -->
@@ -37,13 +37,13 @@
 			<form:form action="/categories/${ category.id }" method="POST" modelAttribute="product">
 			<!-- product -->
 			<div>
-		        <form:label path="product">Add Product:</form:label>
+		        <label for="product">Add Product:</label>
 		        <div>
-		        	<form:select path="product">
-			        	<c:forEach items="${ nonProducts }" var="nonproduct">
-			        		<form:option value="${ nonproduct.id }">${ nonproduct.name }</form:option>
-			        	</c:forEach>
-		        	</form:select>
+		        	<select name="product">
+                    <c:forEach var="nonp" items="${ nonProducts }">
+                        <option value="${ nonp.id }"><c:out value="${ nonp.name }"/></option>
+                    </c:forEach>
+                	</select>
 		        	<form:errors path="product"/>
 		        </div>
 		    </div>

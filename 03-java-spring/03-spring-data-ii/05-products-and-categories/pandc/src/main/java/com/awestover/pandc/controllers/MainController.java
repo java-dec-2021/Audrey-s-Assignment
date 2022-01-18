@@ -84,7 +84,7 @@ public class MainController {
     
     // PRODUCTS/ID
     
-	@RequestMapping("/products/{id}")
+	@RequestMapping(value = "/products/{id}", method=RequestMethod.GET)
 	public String pshow(@PathVariable("id") Long id, Model model) {
 		Product product = productService.getProductById( id );
 		model.addAttribute( "product", product );
@@ -95,17 +95,17 @@ public class MainController {
 	
 	@RequestMapping( value="/products/{prod_id}", method=RequestMethod.POST )
 	public String addCategory( @PathVariable("prod_id") Long prod_id, Model model, @RequestParam(value="category") Long cat_id ) {
-		Product product = productService.getProductById( prod_id );
-		Category category = categoryService.getCategoryById( cat_id );
+		Product prod = productService.getProductById( prod_id );
+		Category cat = categoryService.getCategoryById( cat_id );
 		
-		product.getCategories().add( category );
-		productService.updateProduct( product );
+		prod.getCategories().add( cat );
+		productService.updateProduct( prod );
 		
 		return "redirect:/products/" + prod_id.toString();
 	}
 	
 	// CATEGORIES/ID
-	@RequestMapping("/categories/{id}")
+	@RequestMapping(value = "/categories/{id}", method=RequestMethod.GET)
 	public String cshow(@PathVariable("id") Long id, Model model) {
 		Category category = categoryService.getCategoryById( id );
 		model.addAttribute( "category", category );
@@ -116,11 +116,11 @@ public class MainController {
 	
 	@RequestMapping( value="/categories/{cat_id}", method=RequestMethod.POST )
 	public String addProduct( @PathVariable("cat_id") Long cat_id, Model model, @RequestParam(value="product") Long prod_id ) {
-		Category category = categoryService.getCategoryById( cat_id );
-		Product product = productService.getProductById( prod_id );
+		Category cat = categoryService.getCategoryById( cat_id );
+		Product prod = productService.getProductById( prod_id );
 		
-		category.getProducts().add( product );
-		categoryService.updateCategory( category );
+		cat.getProducts().add( prod );
+		categoryService.updateCategory( cat );
 		
 		return "redirect:/categories/" + cat_id.toString();
 	}

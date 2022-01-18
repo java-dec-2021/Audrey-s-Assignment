@@ -27,35 +27,33 @@
 	<div id= "outside-cont1">
 		<!-- left -->
 		<div>
-			<h1>Categories:</h1>
+			<h4>Categories:</h4>
 			<c:forEach items="${ categories }" var="c">
             	<p>- <c:out value="${c.name}"/></p>
         	</c:forEach>
 		</div>
 		<!-- right -->
 		<div>
-			<form:form action="/products/${ product.id }" method="POST" modelAttribute="category">
+			<form:form action="/products/${ product.id }" method="post" modelAttribute="category">
 			<!-- Category -->
-			<div>
-		        <form:label path="category">Add Category:</form:label>
+			 <div>
+		        <label for="category">Add Category:</label>
 		        <div>
-		        	<form:select path="category">
-			        	<c:forEach items="${ nonCategories }" var="noncat">
-			        		<form:option value="${ noncat.id }"><c:out value="${ noncat.name }"/></form:option>
-			        	</c:forEach>
-		        	</form:select>
+		        	<select name="category">
+                    <c:forEach var="nonc" items="${ nonCategories }">
+                        <option value="${ nonc.id }"><c:out value="${ nonc.name }"/></option>
+                    </c:forEach>
+                	</select>
 		        	<form:errors path="category"/>
 		        </div>
 		    </div>
-		    <!-- button -->
 		    <div >
 		    	<div >
 		    		<button class="btn btn-success">Add</button>
 		    	</div>	
 		    </div>
 	    
-		</form:form>
+			</form:form>
 		</div>
-		<!-- end -->
 	</div>
 </body>
